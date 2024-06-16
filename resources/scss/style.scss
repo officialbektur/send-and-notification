@@ -12,12 +12,237 @@
 %transition {
 	transition: all 0.6s ease 0s;
 }
+@mixin paddingTop_20 {
+	padding-top: rem(20);
+	@include adaptiveValue("padding-top", 20, 16, 991.98);
+	@include adaptiveValue("padding-top", 20, 14, 0, 991.98);
+}
+@mixin paddingBottom_20 {
+	padding-bottom: rem(20);
+	@include adaptiveValue("padding-bottom", 20, 16, 991.98);
+	@include adaptiveValue("padding-bottom", 20, 14, 0, 991.98);
+}
+@mixin paddingLeft_20 {
+	padding-left: rem(20);
+	@include adaptiveValue("padding-left", 20, 16, 991.98);
+	@include adaptiveValue("padding-left", 20, 14, 0, 991.98);
+}
+@mixin paddingRight_20 {
+	padding-right: rem(20);
+	@include adaptiveValue("padding-right", 20, 16, 991.98);
+	@include adaptiveValue("padding-right", 20, 14, 0, 991.98);
+}
+@mixin padding_20_40 {
+	@include paddingTop_20;
+	@include paddingBottom_20;
 
+	padding-left: rem(40);
+	@include adaptiveValue("padding-left", 40, 36, 991.98);
+	@include adaptiveValue("padding-left", 40, 32, 0, 991.98);
+
+	padding-right: rem(40);
+	@include adaptiveValue("padding-right", 40, 36, 991.98);
+	@include adaptiveValue("padding-right", 40, 32, 0, 991.98);
+}
+@mixin paddingTop_12 {
+	padding-top: rem(12);
+	@include adaptiveValue("padding-top", 12, 8, 991.98);
+	@include adaptiveValue("padding-top", 12, 10, 0, 991.98);
+}
+@mixin paddingBottom_12 {
+	padding-bottom: rem(12);
+	@include adaptiveValue("padding-bottom", 12, 8, 991.98);
+	@include adaptiveValue("padding-bottom", 12, 10, 0, 991.98);
+}
+@mixin paddingLeft_12 {
+	padding-left: rem(12);
+	@include adaptiveValue("padding-left", 12, 8, 991.98);
+	@include adaptiveValue("padding-left", 12, 10, 0, 991.98);
+}
+@mixin paddingRight_12 {
+	padding-right: rem(12);
+	@include adaptiveValue("padding-right", 12, 8, 991.98);
+	@include adaptiveValue("padding-right", 12, 10, 0, 991.98);
+}
+@mixin padding_20_12 {
+	@include paddingTop_20;
+	@include paddingBottom_20;
+	@include paddingLeft_12;
+	@include paddingRight_12;
+}
+@mixin padding_3 {
+	padding: rem(3);
+	@include adaptiveValue("padding", 3, 1, 991.98);
+	@include adaptiveValue("padding", 3, 1, 0, 991.98);
+}
+@mixin padding_0_12 {
+	padding-top: rem(0);
+	padding-bottom: rem(0);
+	@include adaptiveValue("padding-left", 12, 8, 991.98);
+	@include adaptiveValue("padding-left", 12, 7, 0, 991.98);
+	@include adaptiveValue("padding-right", 12, 8, 991.98);
+	@include adaptiveValue("padding-right", 12, 7, 0, 991.98);
+}
+@mixin fontSize_14 {
+	font-size: rem(14);
+	@include adaptiveValue("font-size", 14, 12, 991.98);
+	@include adaptiveValue("font-size", 12, 11, 0, 991.98);
+}
+@mixin fontSize_16 {
+	font-size: rem(16);
+	@include adaptiveValue("font-size", 16, 12, 991.98);
+	@include adaptiveValue("font-size", 16, 12, 0, 991.98);
+}
+@mixin fontSize_18 {
+	font-size: rem(18);
+	@include adaptiveValue("font-size", 18, 16, 991.98);
+	@include adaptiveValue("font-size", 18, 13, 0, 991.98);
+}
+@mixin fontSize_20 {
+	font-size: rem(20);
+	@include adaptiveValue("font-size", 20, 16, 991.98);
+	@include adaptiveValue("font-size", 20, 14, 0, 991.98);
+}
+@mixin fontSize_22 {
+	font-size: rem(22);
+	@include adaptiveValue("font-size", 22, 18, 991.98);
+	@include adaptiveValue("font-size", 22, 17, 0, 991.98);
+}
+@mixin borderRadius_12 {
+	border-radius: rem(12);
+	@include adaptiveValue("border-radius", 12, 8, 991.98);
+	@include adaptiveValue("border-radius", 12, 6, 0, 991.98);
+}
+@mixin width_24 {
+	width: rem(24);
+	@include adaptiveValue("width", 24, 16, 991.98);
+	@include adaptiveValue("width", 24, 16, 0, 991.98);
+}
+@mixin height_24 {
+	height: rem(24);
+	@include adaptiveValue("height", 24, 16, 991.98);
+	@include adaptiveValue("height", 24, 16, 0, 991.98);
+}
+@mixin width_18 {
+	width: rem(18);
+	@include adaptiveValue("width", 18, 16, 991.98);
+	@include adaptiveValue("width", 18, 16, 0, 991.98);
+}
+@mixin height_18 {
+	height: rem(18);
+	@include adaptiveValue("height", 18, 16, 991.98);
+	@include adaptiveValue("height", 18, 16, 0, 991.98);
+}
+@mixin loadingBg {
+	background-image: url("/public/storage/project/loading.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+@mixin loadingBg_24 {
+	@include loadingBg;
+	background-size: rem(24);
+	@include adaptiveValue("background-size", 24, 16, 991.98);
+	@include adaptiveValue("background-size", 24, 18, 0, 991.98);
+}
+
+@mixin marginTop_22 {
+	margin-top: rem(22);
+	@include adaptiveValue("margin-top", 22, 8, 991.98);
+	@include adaptiveValue("margin-top", 22, 12, 0, 991.98);
+}
+@mixin marginBottom_22 {
+	margin-bottom: rem(22);
+	@include adaptiveValue("margin-bottom", 22, 8, 991.98);
+	@include adaptiveValue("margin-bottom", 22, 12, 0, 991.98);
+}
+@mixin marginTop_12 {
+	margin-top: rem(12);
+	@include adaptiveValue("margin-top", 12, 8, 991.98);
+	@include adaptiveValue("margin-top", 12, 12, 0, 991.98);
+}
+@mixin marginBottom_12 {
+	margin-bottom: rem(12);
+	@include adaptiveValue("margin-bottom", 12, 8, 991.98);
+	@include adaptiveValue("margin-bottom", 12, 12, 0, 991.98);
+}
+@mixin marginLeft_12 {
+	margin-left: rem(12);
+	@include adaptiveValue("margin-left", 12, 8, 991.98);
+	@include adaptiveValue("margin-left", 12, 12, 0, 991.98);
+}
+@mixin marginRight_12 {
+	margin-right: rem(12);
+	@include adaptiveValue("margin-right", 12, 8, 991.98);
+	@include adaptiveValue("margin-right", 12, 12, 0, 991.98);
+}
+@mixin margin_0_12 {
+	margin-top: rem(0);
+	margin-bottom: rem(0);
+	@include marginLeft_12;
+	@include marginRight_12;
+}
+@mixin rowGap_22 {
+	row-gap: rem(22);
+	@include adaptiveValue("row-gap", 22, 12, 991.98);
+	@include adaptiveValue("row-gap", 22, 16, 0, 991.98);
+}
+@mixin rowGap_6 {
+	row-gap: rem(6);
+	@include adaptiveValue("row-gap", 6, 3, 991.98);
+	@include adaptiveValue("row-gap", 6, 4, 0, 991.98);
+}
+@mixin columnGap_6 {
+	column-gap: rem(6);
+	@include adaptiveValue("column-gap", 6, 3, 991.98);
+	@include adaptiveValue("column-gap", 6, 4, 0, 991.98);
+}
+%transition {
+	transition: all 0.6s ease 0s;
+}
+// Отменить выделение
+%noselect {
+	user-select: none;
+}
 $bgcbody: #181818;
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
+$colorRed: #FF0000;
+$colorYellow: #FFFF00;
+$colorOrange: #FFA500;
+$colorBlue: #0000FF;
+$colorNavy: #000080;
+$colorGreen: #008000;
+$colorLime: #00ff00;
+$colorFuchsia: #ff00ff;
+$colorPurple: #800080;
+$colorIndigo: #4B0082;
+$clickByTouchColor0: rgba(0, 0, 0, 0);
+/* ====================  Additionally Used Colors in the Layout  --Start--  ==================== */
+$colorIconMenu: #ffffff;
+$colorSignalBlack: #303030;
+$colorGainsboro: #DaDaDa;
+$colorLightGray: #b8b8b8;
+/* ====================  Additionally Used Colors in the Layout  --End--  ==================== */
 $primary-light: #8abdff;
 $primary: #6d5dfc;
 $primary-dark: #5b0eeb;
-$clickByTouchColor0: rgba(0, 0, 0, 0);
+
+$greyLight-1: #E4EBF5;
+$greyLight-2: #c8d0e7;
+$greyLight-3: #bec8e4;
+$greyDark: #9baacf;
+$limeDark: #41b883;
+//* ===================================  Colors  --End--  =================================== */
+$shadow: rem(4.8) rem(4.8) rem(9.6) $greyLight-2,
+rem(-3.2) rem(-3.2) rem(8) $colorWhite;
+$shadow-error: rem(3.2) rem(3.2) rem(8) #ff000061,
+rem(-3.2) rem(-3.2) rem(8) #fd9090;
+
+$inner-shadow: inset rem(3.2) rem(3.2) rem(8) $greyLight-2,
+inset rem(-3.2) rem(-3.2) rem(8) $colorWhite;
+$inner-shadow-error: inset rem(3.2) rem(3.2) rem(8) #ff000061,
+inset rem(-3.2) rem(-3.2) rem(8) #fd9090;
 
 $zIndex0: 0;
 $zIndex1: 1;
