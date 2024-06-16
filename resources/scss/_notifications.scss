@@ -1,0 +1,445 @@
+/* =============================================  Notification  --Start--  ============================================= */
+.notification {
+	position: fixed;
+	top: rem(0);
+	@include adaptiveValue("top", 85, 60, 0, 991.98);
+	left: 50%;
+	transform: translateX(-50%);
+
+	@include padding_20_12;
+
+	width: rem(620);
+	max-height: 80vh;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: $greyLight-1;
+	box-shadow: rem(12.8) rem(12.8) rem(22.4) $greyLight-2,
+	rem(-3.2) rem(-3.2) rem(28.8) $colorWhite;
+
+	@include borderRadius_12;
+
+	overflow: hidden;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	z-index: $zIndex4;
+
+	@extend %transition;
+
+	// .notification._show
+	&._show {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	// .notification__header
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@include columnGap_6;
+	}
+
+	// .notification__title
+	&__title {
+		color: $primary;
+		@include fontSize_20;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	// .notification__close
+	&__close {
+		@include padding_3;
+
+		@include width_18;
+		@include width_18;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+		fill: $greyLight-3;
+
+		z-index: 1;
+		@extend %transition;
+
+		html._pc &:hover .notification-close__icon {
+			fill: $colorRed;
+		}
+
+		&.a-hover-bgc::before {
+			transform: scale(1.4);
+			border-radius: 50%;
+		}
+	}
+
+	// .notification-close
+	&-close {
+		// .notification-close__icon
+		&__icon {
+			width: 100%;
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			// .notification-close__icon svg
+			& svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	// .notification__content
+	&__content {
+		@include padding_0_12;
+
+		@include marginTop_12;
+
+		width: 100%;
+		height: 100%;
+
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: rem(6);
+			@include adaptiveValue("width", 6, 5, 991.98);
+			@include adaptiveValue("width", 6, 4, 0, 991.98);
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: rgba($color: $primary, $alpha: 0.3);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $primary;
+			border-radius: rem(20);
+		}
+	}
+
+	// .notification__lists
+	&__lists {
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		@include rowGap_6;
+	}
+
+	// .notification__list
+	&__list {
+		@include paddingTop_20;
+		@include paddingBottom_20;
+		@include paddingLeft_20;
+		@include paddingRight_20;
+
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		@include rowGap_6;
+
+		background-color: #E4EBF5;
+
+		box-shadow: $inner-shadow;
+
+		@include borderRadius_12;
+
+		overflow: hidden;
+
+		@extend %transition;
+
+		// .notification__list._done
+		&._done {
+			margin-left: 250%;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+	}
+
+	// .notification-list
+	&-list {
+		// .notification-list__header
+		&__header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@include columnGap_6;
+		}
+
+		// .notification-list__title
+		&__title {
+			color: $primary;
+			@include fontSize_14;
+			font-weight: 700;
+			line-height: 1;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			// .notification__list._error .notification-list__title
+			.notification__list._error & {
+				color: $colorRed;
+			}
+		}
+
+		// .notification-list__close
+		&__close {
+			@include padding_3;
+
+			@include width_18;
+			@include width_18;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			fill: $greyLight-3;
+
+			z-index: 1;
+			@extend %transition;
+
+			html._pc &:hover .notification-list-close__icon {
+				fill: $colorRed;
+			}
+
+			&.a-hover-bgc::before {
+				transform: scale(1.4);
+				border-radius: 50%;
+			}
+		}
+
+		// .notification-list-close
+		&-close {
+			// .notification-list-close__icon
+			&__icon {
+				width: 100%;
+				height: 100%;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// .notification-list-close__icon svg
+				& svg {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		// .notification-list__content
+		&__content {
+			margin-top: rem(6);
+			display: flex;
+			flex-direction: column;
+			@include rowGap_6;
+		}
+
+		// .notification-list__loading
+		&__loading {
+			width: 100%;
+
+			display: flex;
+			align-items: center;
+			@include columnGap_6;
+		}
+
+		// .notification-list-loading
+		&-loading {
+			// .notification-list-loading__indicator
+			&__indicator {
+				width: 100%;
+				height: rem(4);
+				box-shadow: $inner-shadow;
+				border-radius: rem(6);
+			}
+
+			// .notification-list-loading-indicator
+			&-indicator {
+				// .notification-list-loading-indicator__progress
+				&__progress {
+					position: relative;
+					display: block;
+					width: 0%;
+					height: 100%;
+					background: $primary;
+					background: linear-gradient(-1deg, $primary-dark 0%, $primary 50%, $primary-light 100%);
+					border-radius: inherit;
+					transition: width 0.6s;
+
+					// .notification-list._error .notification-list-loading-indicator__progress
+					.notification-list._error & {
+						background: rgba(255, 0, 0);
+						background: linear-gradient(-1deg, rgba(255, 0, 0) 0%, rgb(255, 64, 64) 50%, rgb(255, 195, 195) 100%);
+					}
+
+					&::after,
+					&::before {
+						content: '';
+						display: none;
+						width: 10px;
+						height: 1px;
+						background: $primary;
+						position: absolute;
+						top: 9px;
+						right: -2px;
+						opacity: 0;
+						transform: rotate(-45deg) translateX(0px);
+						box-sizing: border-box;
+						animation: coli1 0.3s linear infinite;
+						// .notification-list._sending .notification-list-loading-indicator__progress
+						&._sending {
+							display: block;
+						}
+					}
+
+					&::before {
+						top: -4px;
+						transform: rotate(45deg);
+						animation: coli2 0.3s linear infinite;
+					}
+
+					@keyframes coli1 {
+						0% {
+							transform: rotate(-45deg) translateX(0px);
+							opacity: 0.7;
+						}
+						100% {
+							transform: rotate(-45deg) translateX(-25px);
+							opacity: 0;
+						}
+					}
+
+					@keyframes coli2 {
+						0% {
+							transform: rotate(45deg) translateX(0px);
+							opacity: 1;
+						}
+						100% {
+							transform: rotate(45deg) translateX(-25px);
+							opacity: 0.7;
+						}
+					}
+				}
+			}
+
+			// .notification-list-loading__progress
+			&__progress {
+				color: $primary;
+				@include fontSize_14;
+				font-weight: 700;
+				line-height: 1;
+
+				// .notification-list._error .notification-list-loading__progress
+				.notification-list._error & {
+					color: $colorRed;
+				}
+			}
+		}
+
+		// .notification-list__response
+		&__response {
+			color: $primary;
+			@include fontSize_14;
+			font-weight: 700;
+			line-height: 1;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			// .notification-list__response._full
+			&._full {
+				white-space: normal;
+			}
+		}
+
+		// .notification-list-response
+		&-response {
+			// .notification-list-response__title
+			&__title {
+				color: $limeDark;
+			}
+
+			// .notification-list-response__result
+			&__result {
+				// .notification-list._error .notification-list-response__result
+				.notification-list._error & {
+					color: $colorRed;
+				}
+			}
+
+			// .notification-list-response__loading
+			&__loading {
+				width: rem(10);
+				height: rem(10);
+				display: inline-block;
+				position: relative;
+				border: rem(2) solid;
+				border-color: $primary #0000 #00a1ff #0000;
+				border-radius: 50%;
+				box-sizing: border-box;
+				animation: 1s rotate linear infinite;
+
+				&:before,
+				&:after {
+					content: '';
+					top: 0;
+					left: 0;
+					position: absolute;
+					border: rem(3) solid transparent;
+					border-bottom-color: #00a1ff;
+					transform: translate(rem(-4), rem(1)) rotate(-40deg);
+				}
+
+				&:after {
+					border-color: $primary #0000 #0000 #0000;
+					transform: translate(rem(4), rem(-1)) rotate(-35deg);
+				}
+
+				@keyframes rotate {
+					100% {
+						transform: rotate(360deg)
+					}
+				}
+			}
+		}
+
+		// .notification-list__date
+		&__date {
+			color: $greyDark;
+			@include fontSize_14;
+			font-weight: 700;
+			line-height: 1;
+			text-align: end;
+		}
+	}
+
+	// .notification__alert
+	&__alert {
+		position: fixed;
+		top: rem(20);
+		@include adaptiveValue('top', 105, 80, 0, 991.98);
+		right: rem(20);
+
+		width: rem(280);
+		max-height: 80vh;
+
+		overflow: hidden;
+
+		@extend %noselect;
+
+		z-index: $zIndex4;
+
+		@extend %transition;
+	}
+}
+
+/* =============================================  Notification  --End--  ============================================= */

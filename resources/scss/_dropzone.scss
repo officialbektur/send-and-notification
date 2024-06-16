@@ -1,0 +1,91 @@
+/* =============================================  drag-zone  --Start--  ============================================= */
+.drag-zone {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	padding: 2% 5%;
+
+	background: rgba(0, 0, 0, 0.4);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: $zIndex5;
+	transition: all 0.6s ease-in-out 0s;
+
+	// .drag-zone._drag-and-drop
+	&._drag-and-drop {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+
+	// .drag-zone__content
+	&__content {
+		width: 100%;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		row-gap: rem(12);
+
+		border: dashed rem(3) #ffffff;
+		border-radius: rem(30);
+		transition: background 0.6s ease-in-out 0s;
+
+		* {
+			pointer-events: none;
+			user-select: none;
+		}
+
+		// .drag-zone__content._active
+		&._active {
+			background: rgba(255, 255, 255, 0.3);
+		}
+
+		// .drag-zone._error .drag-zone__content
+		.drag-zone._error & {
+			border-color: #ff0000;
+			background: rgba(255, 0, 0, 0.3);
+		}
+	}
+
+	// .drag-zone__icon
+	&__icon {
+		// .drag-zone__icon svg
+		& svg {
+			width: rem(140);
+			height: rem(140);
+			fill: #ffffff;
+			// .drag-zone._error .drag-zone__icon svg
+			.drag-zone._error & {
+				fill: #ff0000;
+			}
+		}
+	}
+
+	// .drag-zone__title
+	&__title {
+		color: #ffffff;
+		font-size: rem(26);
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		// .drag-zone._error .drag-zone__title
+		.drag-zone._error & {
+			color: #ff0000;
+		}
+	}
+}
+
+/* =============================================  drag-zone  --End--  ============================================= */
