@@ -23,7 +23,7 @@ services:
       - db
 
   db:
-    image: mysql:8.0
+    image: mysql:latest
     restart: always
     volumes:
       - ./tmp/db:/var/lib/mysql
