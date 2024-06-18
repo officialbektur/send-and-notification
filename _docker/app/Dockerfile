@@ -13,7 +13,10 @@ RUN apt-get update && apt-get install -y \
       docker-php-ext-install zip && \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+	  
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs
+	
 COPY ./_docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
 
 # Install composer
